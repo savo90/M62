@@ -67,7 +67,7 @@ async def ytdl(link):
     else:
         return 0, stderr.decode()
 
-@Client.on_message(filters.command(["تشغيل"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["play"], prefixes=f"{HNDLR}"))
 async def play(client, m: Message):
     replied = m.reply_to_message
     chat_id = m.chat.id
@@ -113,7 +113,7 @@ async def play(client, m: Message):
             await m.reply("الرد على ملف صوتي أو إعطاء شيء للبحث")
         else:
             await m.delete()
-            huehue = await m.reply("🔎 جاري البحث عزيزي ")
+            huehue = await m.reply("🔎 جاري البحث استنـاا شـويه ")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             if search == 0:
@@ -136,6 +136,7 @@ async def play(client, m: Message):
 **🏷️  العنوان : [{songname}]({url})
 ⏱️ مده المقطع : {duration}
 💬 ايدي المحادثه : {chat_id}
+قنـاه السورس : @L_S_A_V_O
 🎧 طلب من : {m.from_user.mention}**
 """,
                         )
@@ -164,7 +165,7 @@ async def play(client, m: Message):
                             await huehue.edit(f"`{ep}`")
 
 
-@Client.on_message(filters.command(["تشغيل_فيديو"], prefixes=f"{HNDLR}"))
+@Client.on_message(filters.command(["vplay"], prefixes=f"{HNDLR}"))
 async def vplay(client, m: Message):
     replied = m.reply_to_message
     chat_id = m.chat.id
